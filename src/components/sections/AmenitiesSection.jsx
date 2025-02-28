@@ -1,0 +1,1 @@
+// AmenitiesSection.jsx content

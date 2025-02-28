@@ -1,0 +1,1 @@
+// MapSection.jsx content

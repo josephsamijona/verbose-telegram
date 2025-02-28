@@ -1,0 +1,1 @@
+// Properties.jsx content

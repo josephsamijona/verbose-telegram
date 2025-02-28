@@ -1,0 +1,1 @@
+// useProperties.js content
