@@ -1,1 +1,0 @@
-// HeroSection.jsx content

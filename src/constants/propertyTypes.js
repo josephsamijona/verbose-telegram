@@ -1,1 +1,0 @@
-// propertyTypes.js content

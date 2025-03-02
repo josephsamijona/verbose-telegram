@@ -1,1 +1,0 @@
-// FeaturedProperties.jsx content

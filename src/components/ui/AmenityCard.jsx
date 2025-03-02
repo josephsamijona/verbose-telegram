@@ -1,1 +1,0 @@
-// AmenityCard.jsx content
