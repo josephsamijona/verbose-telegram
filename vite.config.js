@@ -20,13 +20,13 @@ export default defineConfig(({ mode }) => {
       host: '0.0.0.0',
       port: process.env.PORT || 3000,
       strictPort: true,
-      allowedHosts: 'all' // Permettre tous les hôtes
+      allowedHosts: ['all', 'protypewebsite.up.railway.app'] // Ajout explicite du domaine
     },
     server: {
       port: env.PORT || 3000,
       host: true, // Needed for docker
       strictPort: true,
-      allowedHosts: 'all' // Permettre tous les hôtes également en mode développement
+      allowedHosts: ['all', 'protypewebsite.up.railway.app'] // Ajout explicite du domaine également ici
     },
     resolve: {
       alias: {
