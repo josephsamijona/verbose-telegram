@@ -1,0 +1,170 @@
+/* Import des polices Google */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&display=swap');
+
+/* Directives Tailwind de base */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Styles de base */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply font-sans text-silver-800 bg-silver-50;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif font-medium;
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl leading-tight;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl leading-tight;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl leading-snug;
+  }
+
+  h4 {
+    @apply text-xl md:text-2xl;
+  }
+
+  p {
+    @apply text-base md:text-lg leading-relaxed;
+  }
+
+  a {
+    @apply text-ranch-400 transition-colors duration-300;
+  }
+
+  a:hover {
+    @apply text-ranch-600;
+  }
+}
+
+/* Composants réutilisables */
+@layer components {
+  /* Bouton principal */
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-6 py-3 text-base font-medium text-white bg-ranch-400 border border-transparent rounded-md shadow-md hover:bg-ranch-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-ranch-400 transition-all duration-300;
+  }
+  
+  /* Bouton secondaire */
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-6 py-3 text-base font-medium text-ranch-600 bg-white border border-ranch-200 rounded-md shadow-sm hover:bg-silver-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-ranch-400 transition-all duration-300;
+  }
+  
+  /* Bouton doré / luxe */
+  .btn-gold {
+    @apply inline-flex items-center justify-center px-6 py-3 text-base font-medium text-luxury-black bg-gradient-gold border border-transparent rounded-md shadow-gold hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold-400 transition-all duration-300;
+  }
+  
+  /* Carte de propriété */
+  .property-card {
+    @apply relative overflow-hidden bg-white rounded-lg shadow-premium-soft hover:shadow-premium transition-all duration-500 transform hover:-translate-y-1;
+  }
+
+  /* Hero section with overlay */
+  .hero-section {
+    @apply relative bg-luxury-black-dark;
+  }
+  
+  .hero-section::after {
+    @apply absolute inset-0 bg-luxury-black bg-opacity-30 z-10;
+    content: '';
+  }
+  
+  /* Titres de section élégants */
+  .section-title {
+    @apply relative text-3xl md:text-4xl font-serif font-medium text-luxury-black pb-4 mb-8;
+  }
+  
+  .section-title::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-16 h-1 bg-gold-500;
+  }
+  
+  /* Container centré avec espacement pour les sections */
+  .luxury-container {
+    @apply container mx-auto px-4 py-16 md:py-24;
+  }
+}
+
+/* Utilitaires personnalisés */
+@layer utilities {
+  /* Overlay semi-transparent pour les images */
+  .overlay-dark {
+    @apply relative;
+  }
+  
+  .overlay-dark::after {
+    content: '';
+    @apply absolute inset-0 bg-luxury-black bg-opacity-30;
+  }
+  
+  /* Effet glassmorphism pour éléments superposés */
+  .glass-effect {
+    @apply bg-white bg-opacity-10 backdrop-blur-md border border-white border-opacity-20 shadow-lg;
+  }
+  
+  /* Texte avec effet doré */
+  .text-gold-gradient {
+    @apply text-transparent bg-clip-text bg-gradient-gold;
+  }
+  
+  /* Effets d'animation basés sur le défilement */
+  .animate-on-scroll {
+    @apply opacity-0 translate-y-8 transition-all duration-700;
+  }
+  
+  .animate-on-scroll.in-view {
+    @apply opacity-100 translate-y-0;
+  }
+}
+
+/* Optimisations pour appareils mobiles */
+@media (max-width: 768px) {
+  .luxury-container {
+    @apply py-10;
+  }
+  
+  h1 {
+    @apply text-3xl leading-tight;
+  }
+  
+  h2 {
+    @apply text-2xl;
+  }
+}
+
+/* Support du mode sombre */
+@media (prefers-color-scheme: dark) {
+  body {
+    @apply bg-luxury-black text-silver-100;
+  }
+  
+  .property-card {
+    @apply bg-luxury-black-light border border-silver-800;
+  }
+  
+  .section-title {
+    @apply text-silver-100;
+  }
+  
+  .glass-effect {
+    @apply bg-luxury-black-light bg-opacity-50 border-luxury-black-light;
+  }
+}

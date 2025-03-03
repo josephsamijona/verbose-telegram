@@ -1,10 +1,12 @@
-const defaultTheme = require('tailwindcss/defaultTheme');
+// tailwind.config.js
+import typographyPlugin from '@tailwindcss/typography';
+import formsPlugin from '@tailwindcss/forms';
+import aspectRatioPlugin from '@tailwindcss/aspect-ratio';
+import textShadowPlugin from 'tailwindcss-textshadow';
+import defaultTheme from 'tailwindcss/defaultTheme';
 
 /** @type {import('tailwindcss').Config} */
-module.exports = {
-  // Mode JIT pour des performances optimales
-  mode: 'jit',
-  
+export default {
   // Mobile-first par défaut
   content: [
     "./index.html",
@@ -24,7 +26,7 @@ module.exports = {
     extend: {
       // Palette de couleurs luxueuse
       colors: {
-        // Couleurs principales (base sur l'image de Sea Horse Ranch mais modernisée)
+        // Couleurs principales
         'ranch': {
           50: '#E6F2F2',
           100: '#CCE5E5',
@@ -292,13 +294,12 @@ module.exports = {
   
   // Plugins pour fonctionnalités avancées
   plugins: [
-    require('@tailwindcss/typography'), // Pour du contenu riche et bien formaté
-    require('@tailwindcss/forms')({
+    typographyPlugin, // Pour du contenu riche et bien formaté
+    formsPlugin({
       strategy: 'class', // Uniquement appliqué aux éléments avec la classe 'form-input', etc.
     }),
-    require('@tailwindcss/aspect-ratio'), // Pour maintenir les ratios d'aspect des images
-    require('@tailwindcss/line-clamp'), // Pour limiter le texte à un certain nombre de lignes
-    require('tailwindcss-textshadow'), // Pour des ombres de texte élégantes
+    aspectRatioPlugin, // Pour maintenir les ratios d'aspect des images
+    textShadowPlugin, // Pour des ombres de texte élégantes
     
     // Plugin pour créer des styles Safari/Chrome compatibles
     function({ addBase, theme }) {
@@ -334,26 +335,6 @@ module.exports = {
     },
   ],
   
-  // Variables pour mode sombre (optionnel)
-  darkMode: 'class', // ou 'media' pour respecter la préférence du système
-  
-  // Variantes pour options d'interaction supplémentaires
-  variants: {
-    extend: {
-      backgroundColor: ['active', 'group-hover'],
-      backgroundOpacity: ['active'],
-      borderColor: ['focus-visible', 'first', 'last'],
-      boxShadow: ['active', 'hover'],
-      opacity: ['disabled', 'group-hover'],
-      ringColor: ['hover', 'active'],
-      ringWidth: ['hover', 'active'],
-      textColor: ['active', 'visited', 'group-hover'],
-      textOpacity: ['active', 'group-hover'],
-      transform: ['active', 'group-hover'],
-      scale: ['active', 'group-hover'],
-      translate: ['active', 'group-hover'],
-      backdropBlur: ['hover'],
-      display: ['group-hover'],
-    }
-  },
+  // Variables pour mode sombre
+  darkMode: 'class',
 };
